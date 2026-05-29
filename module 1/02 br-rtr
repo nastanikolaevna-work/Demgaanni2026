@@ -69,7 +69,7 @@ usermod -aG wheel net_admin
 echo "WHEEL_USERS ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/net_admin
 su -l net_admin
 sudo id
-
+exit
 --------OSPF--------------
 sed -i 's/ospfd=no/ospfd=yes/' /etc/frr/daemons ; grep ospf /etc/frr/daemons
 
@@ -94,5 +94,6 @@ EOF
 
 systemctl restart network
 systemctl enable --now nftables frr
+systemctl status nftables frr
 cat /etc/resolv.conf
 ip r
