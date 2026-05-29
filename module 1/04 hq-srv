@@ -108,4 +108,8 @@ chown :named /etc/bind/zone/au-team.irpo /etc/bind/zone/168.192.in-addr.arpa
 systemctl enable --now bind
 service network restart
 host br-rtr
+
+    если error  то перезапустить бинд и проверить статус 
+systemctl restart bind
+systemctl status bind
 host -t PTR 192.168.100.2
