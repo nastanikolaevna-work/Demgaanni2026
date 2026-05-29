@@ -47,12 +47,16 @@ tail /etc/sudoers
 ==========Ansible==================
 apt-get install ansible sshpass -y
     создать файл конфигурации
+идем в каталог ансибл cd /etc/ansible/
+
 ansible-config init > ansible.cfg
-    изменить и раскомментировать строки
+    изменить и раскомментировать строки,
+                должен появиться огромный файл находим в нем и раскоммим две строки ;host_key_checking = False и interpreter_python=auto
 vim /etc/ansible/ansible.cfg
 [defaults]
 host_key_checking = False
 interpreter_python=/usr/bin/python3
+сохраняем выходим
 
 +++
 cat << EOF >/etc/ansible/hosts
