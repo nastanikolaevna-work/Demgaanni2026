@@ -33,10 +33,11 @@ for i in {1..5}; do samba-tool group addmembers hq hquser$i; done
 samba-tool group listmembers hq
 
 ===========HQ-CLI
-    вводим HQ-CLI в домен
-apt-get install task-auth-ad-sssd
-    на HQ-CLI перезагружаем сеть (это так:...), проверяем DNS
-    вводим в домен
+    вводим HQ-CLI в домен:
+apt-get install task-auth-ad-sssd - устанавливаем на машине HQ-CLI
+заходим через графику в acc аутентификация - ставим 2 точку выходим
+    на HQ-CLI перезагружаем сеть (это так:systemctl restart network), проверяем DNS
+    вводим в домен (заходим так же на HQ-CLI только уже 2 странице копипаст где и там под рутом)
 control libnss-role
 roleadd hq wheel
 echo "WHEEL_USERS ALL=(ALL:ALL) /usr/bin/cat, /usr/bin/grep, /usr/bin/id" >> /etc/sudoers
