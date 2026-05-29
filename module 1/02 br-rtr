@@ -8,7 +8,7 @@ exec bash
 mkdir -p /etc/net/ifaces/{ens19,gre1}
 echo 'TYPE=eth' | tee /etc/net/ifaces/ens{18,19}/options
 
--------to ISP------
+-------to ISP------ ДЕЛАЕМ НА BR-RTR подключение
 echo '172.16.2.2/28' > /etc/net/ifaces/ens18/ipv4address
 echo 'default via 172.16.2.1' > /etc/net/ifaces/ens18/ipv4route
 echo 'nameserver 8.8.8.8' > /etc/net/ifaces/ens18/resolv.conf
@@ -38,7 +38,7 @@ ip -br -c a
 
 -------установка необходимого ПО-------
 apt-get install frr -y
-
+    если не устанавливается, перепроверить файлы и перезапустить systemctl restart network!!!!
 --------смена DNS-----------
 rm -f /etc/net/ifaces/ens18/resolv.conf
 echo $'search au-team.irpo\nnameserver 192.168.100.2' > /etc/net/ifaces/ens18/resolv.conf
